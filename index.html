@@ -70,6 +70,19 @@
   text-decoration: none;
 }
 
+  .cards-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Undergraduate: 5 columns */
+.cards-5 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
  .card p {
   line-height: 1.6;
 }
@@ -138,19 +151,25 @@
       <p>Director - Autonomy Robotics and Multiagent Systems</p>
     </div>
   </div>
-    <h3>Graduate Students</h3>
-  <div class="cards">
+   <h3>Graduate Students</h3>
+<div class="cards-3">
 
-    <div class="card">
-      <h3>Group 1</h3>
-      <p>Student A<br>Student B<br>Student C</p>
-    </div>
-
-    <div class="card">
-      <h3>Group 2</h3>
-      <p>Student D<br>Student E</p>
-    </div>
+  <div class="card">
+    <h3>Student A</h3>
+    <p>PhD Student</p>
   </div>
+
+  <div class="card">
+    <h3>Student B</h3>
+    <p>MS Student</p>
+  </div>
+
+  <div class="card">
+    <h3>Student C</h3>
+    <p>PhD Student</p>
+  </div>
+
+</div>
     <h3>Undergraduate Students</h3>
   <div class="cards">
 
