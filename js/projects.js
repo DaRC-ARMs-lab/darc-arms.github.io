@@ -3,7 +3,7 @@ const projectsData = [
     title: "Physics-Integrated Neural Networks for Autonomous Navigation",
     slug: "pinn-autonomous-navigation",
     description: "A hybrid neural network model that integrates physics priors with learned dynamics components",
-    image: "images/projects/pinn.jpg",
+    image: "images/rudy-f1tenth-blue.png",
     people: ["Musabbir A. Arrafi"],
     tags: ["Autonomous Navigation", "PINNs", "Vehicle Dynamics"],
     paper: "#"

@@ -39,42 +39,94 @@
       border-radius: 16px;
       margin: 24px 0 32px;
     }
+    .full-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 16px;
+    margin: 30px 0;
+    }
+    .video-wrapper {
+    margin: 30px 0;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
 
-    .section {
-      margin-top: 36px;
+    .video-wrapper video {
+    width: 100%;
+    height: auto;
+    display: block;
     }
   </style>
 </head>
 <body>
   <div class="container">
     <p><a href="../index.html#projects">← Back to Projects</a></p>
-
     <h1>Physics-Integrated Neural Networks for Autonomous Navigation</h1>
     <p>
       A hybrid neural network model that integrates physics priors with learned dynamics components.
     </p>
 
-    <img src="../images/projects/pinn.jpg" alt="Project image" class="hero-image">
+    <img src="../images/lepavd_architecture.png" alt="Project image" class="full-image">
+    <div class="video-wrapper">
+    <video autoplay muted loop playsinline>
+        <source src="../videos/combined_DDM_INA_LEPAVD_ETHZMobil.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    </div>
+
 
     <div class="section">
-      <h2>Overview</h2>
-      <p>
-        Add the full project description here.
-      </p>
+    <h2>Overview</h2>
+    <p>
+        This project introduces <b>Learning-Enhanced Physics-Aware Vehicle Dynamics (LE-PAVD)</b>,
+        a hybrid modeling framework designed for high-fidelity autonomous navigation under uncertainty.
+        The approach integrates first-principles vehicle dynamics with neural network components to
+        capture complex nonlinear behaviors that are difficult to model analytically.
+    </p>
+
+    <p>
+        In parallel, we develop <b>CAPE (Control Algorithm Performance Evaluation)</b>, a systematic
+        benchmarking framework that evaluates control strategies using learned dynamics models in
+        open-loop and closed-loop settings. Together, LE-PAVD and CAPE enable reliable simulation,
+        prediction, and control validation for autonomous systems operating in uncertain environments.
+    </p>
     </div>
 
     <div class="section">
-      <h2>Methods</h2>
-      <p>
-        Add methodology, model structure, datasets, and experiments here.
-      </p>
+    <h2>Methods</h2>
+    <p>
+        The LE-PAVD model extends the classical single-track vehicle model by incorporating
+        <b>load-sensitive tire forces, dynamic load transfer, suspension effects, and actuator dynamics</b>.
+        A neural network is embedded within the model to learn residual dynamics, allowing the system
+        to capture discrepancies between simplified physics and real-world behavior.
+    </p>
+
+    <p>
+        For control evaluation, CAPE leverages the learned dynamics to assess multiple controllers,
+        including <b>PID, RISE, Nominal NMPC, and Robust NMPC</b>, under varying levels of noise and
+        uncertainty. The framework evaluates performance using trajectory tracking metrics such as
+        cross-track error, stability, and robustness to disturbances, enabling fair and systematic
+        comparison across control strategies.
+    </p>
     </div>
 
     <div class="section">
-      <h2>Results</h2>
-      <p>
-        Add figures, videos, links to papers, and outcomes here.
-      </p>
+    <h2>Results</h2>
+    <p>
+        Experimental results demonstrate that LE-PAVD achieves significantly improved predictive
+        accuracy compared to baseline data-driven and physics-only models, particularly under
+        distribution shifts and noisy conditions. The model enables stable and reliable long-horizon
+        predictions, which are critical for control applications.
+    </p>
+
+    <p>
+        Using CAPE, we show that <b>Robust NMPC</b> consistently outperforms other controllers in terms
+        of stability and disturbance rejection, while simpler controllers exhibit degraded performance
+        under increasing uncertainty. The integrated framework provides a comprehensive pipeline for
+        developing, evaluating, and deploying autonomous navigation algorithms in realistic scenarios.
+    </p>
     </div>
   </div>
 </body>
