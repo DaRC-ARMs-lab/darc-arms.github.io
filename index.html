@@ -10,7 +10,7 @@
   body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #0f172a;
+    background: #27324d;
     color: white;
   }
    .person-name {
@@ -52,17 +52,82 @@
     color: white;
   }
 
-  .hero {
-    background: #f1f5f9;
-    color: #111;
-    text-align: center;
-    padding: 80px 20px;
-  }
+      .hero {
+        position: relative;
+        min-height: 75vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 80px 20px;
+        color: white;
+        background: url("images/lab-group.png") center center / cover no-repeat;
+      }
 
-  .hero h2 {
-    font-size: 40px;
-    margin-bottom: 20px;
-  }
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 10, 30, 0.55);
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 850px;
+        background: rgba(15, 23, 42, 0.45);
+        padding: 30px 40px;
+        border-radius: 16px;
+        backdrop-filter: blur(4px);
+      }
+
+      .hero h2 {
+        font-size: 46px;
+        margin-bottom: 20px;
+      }
+
+      .hero p {
+        font-size: 20px;
+        line-height: 1.6;
+        margin: 10px 0;
+      }
+
+    .video-section {
+      background: #e5e7eb;
+      color: #111827;
+      padding: 80px 40px;
+    }
+
+    .video-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .video-container h2 {
+      margin-bottom: 20px;
+      font-size: 34px;
+    }
+
+    .video-container p {
+      max-width: 800px;
+      margin: 0 auto 30px auto;
+      line-height: 1.7;
+      font-size: 18px;
+    }
+
+    .video-wrapper {
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      background: black;
+    }
+
+    .video-wrapper video {
+      width: 100%;
+      display: block;
+    }
+
 
   .section {
     padding: 80px 40px;
@@ -119,6 +184,35 @@
   margin-bottom: 12px;
   line-height: 1.6;
 }
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.profile img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #9ecbff;
+}
+
+.profile-info {
+  flex: 1;
+}
+
+.profile-info a {
+  color: #9ecbff;
+  text-decoration: none;
+}
+
+.profile-info a:hover {
+  color: white;
+}
+
+
 </style>
 </head>
 
@@ -137,14 +231,35 @@
 </header>
 
 <section class="hero">
-  <h2>Welcome to DaRC-ARMS Research Lab</h2>
-  <p>
-    Dayton Robotics and Controls -- Autonomy Robotics and Multiagent Systems
-  </p>
-  <p>
-    Jointly led by Dr. Krishna B Kidambi and Dr. Nicholas Stiffler at the University of Dayton.
-  </p>
+  <div class="hero-content">
+    <h2>Welcome to DaRC-ARMS Research Lab</h2>
+    <p>
+      Dayton Robotics and Controls -- Autonomy Robotics and Multiagent Systems Lab
+    </p>
+    <p>
+      Jointly led by Dr. Krishna B Kidambi and Dr. Nicholas Stiffler at the University of Dayton.
+    </p>
+  </div>
 </section>
+
+<section class="video-section">
+  <div class="video-container">
+    <h2>Lab in Action</h2>
+    <p>
+      Research at DaRC-ARMS spans autonomous vehicles, sensing, tracking, and multi-agent systems.
+      This featured video highlights our lab environment, experiments, and project ecosystem.
+    </p>
+
+    <div class="video-wrapper">
+      <!-- <video autoplay muted loop playsinline controls> -->
+        <video autoplay muted loop playsinline>
+        <source src="videos/lab-demo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</section>
+
 
 <section id="focus" class="section">
   <h2>People</h2>
