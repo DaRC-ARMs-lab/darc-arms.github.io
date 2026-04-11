@@ -1,100 +1,113 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>DaRC-ARMS Research Lab</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #27324d;
-    color: white;
-  }
-   .person-name {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-  .icons a {
-    color: #9ecbff;
-    margin-left: 10px;
-    font-size: 16px;
-    text-decoration: none;
-  }
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-  .icons a:hover {
-    color: #ffffff;
-  }
+    html {
+      scroll-behavior: smooth;
+    }
 
-  header {
-    padding: 20px 40px;
-    border-bottom: 1px solid #333;
-    display: flex;
-    justify-content: space-between;
-  }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #081533;
+      color: white;
+    }
 
-  header h1 {
-    font-size: 18px;
-    margin: 0;
-  }
+    a {
+      color: inherit;
+    }
 
-  nav a {
-    color: #ccc;
-    margin-left: 20px;
-    text-decoration: none;
-  }
+    header {
+      padding: 18px 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #07122b;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
-  nav a:hover {
-    color: white;
-  }
+    header h1 {
+      font-size: 18px;
+      margin: 0;
+      font-weight: 700;
+    }
 
-      .hero {
-        position: relative;
-        min-height: 75vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        padding: 80px 20px;
-        color: white;
-        background: url("images/lab-group.png") center center / cover no-repeat;
-      }
+    nav {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
 
-      .hero::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: rgba(0, 10, 30, 0.55);
-      }
+    nav a {
+      color: #d2d9e8;
+      text-decoration: none;
+      font-size: 15px;
+      transition: color 0.2s ease;
+    }
 
-      .hero-content {
-        position: relative;
-        z-index: 2;
-        max-width: 850px;
-        background: rgba(15, 23, 42, 0.45);
-        padding: 30px 40px;
-        border-radius: 16px;
-        backdrop-filter: blur(4px);
-      }
+    nav a:hover {
+      color: white;
+    }
 
-      .hero h2 {
-        font-size: 46px;
-        margin-bottom: 20px;
-      }
+    .hero {
+      position: relative;
+      min-height: 72vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 20px;
+      color: white;
+      background: url("images/lab-group.png") center center / cover no-repeat;
+    }
 
-      .hero p {
-        font-size: 20px;
-        line-height: 1.6;
-        margin: 10px 0;
-      }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(4, 10, 24, 0.60);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      background: rgba(8, 21, 51, 0.45);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 36px 40px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+    }
+
+    .hero h2 {
+      font-size: 48px;
+      line-height: 1.15;
+      margin: 0 0 20px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      line-height: 1.7;
+      margin: 10px 0;
+      color: #e7edf8;
+    }
 
     .video-section {
-      background: #e5e7eb;
-      color: #111827;
+      background: #dfe4eb;
+      color: #101827;
       padding: 80px 40px;
     }
 
@@ -105,371 +118,362 @@
     }
 
     .video-container h2 {
-      margin-bottom: 20px;
       font-size: 34px;
+      margin-bottom: 16px;
     }
 
     .video-container p {
-      max-width: 800px;
-      margin: 0 auto 30px auto;
-      line-height: 1.7;
+      max-width: 820px;
+      margin: 0 auto 28px;
       font-size: 18px;
+      line-height: 1.7;
+      color: #273246;
     }
 
     .video-wrapper {
       border-radius: 18px;
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
       background: black;
+      box-shadow: 0 16px 36px rgba(0,0,0,0.25);
     }
 
     .video-wrapper video {
-      width: 100%;
       display: block;
+      width: 100%;
+      height: auto;
     }
 
+    .section {
+      padding: 100px 40px;
+      max-width: 1100px;
+      margin: auto;
+    }
 
-  .section {
-    padding: 80px 40px;
-    max-width: 1000px;
-    margin: auto;
-  }
+    .section-title {
+      font-size: 34px;
+      margin: 0 0 36px;
+      font-weight: 700;
+      border-left: 4px solid #9ecbff;
+      padding-left: 14px;
+    }
 
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-  }
+    .group-title {
+      margin: 42px 0 18px;
+      font-size: 22px;
+      color: #ffffff;
+      font-weight: 700;
+    }
 
-  .card {
-    background: #1e293b;
-    padding: 20px;
-    border-radius: 12px;
-  }
-.card a {
-  color: #9ecbff;
-  margin-right: 12px;
-  font-size: 18px;
-  text-decoration: none;
-}
-.card a:hover {
-  color: #ffffff;
-}
-.card h3 {
-  color: #9ecbff;
-  text-decoration: none;
-}
- .card p {
-  line-height: 1.6;
-}
-#projects a:link {
-  color: #9ecbff;         
-  text-decoration: none;
-}
-  
-#projects a:hover {
-  color: #ffffff;        /* hover color */
-  text-decoration: underline;
-}
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 22px;
+    }
 
-#projects a:visited {
-  color: #9ecbff;        /* prevents purple links */
-}
+    .card {
+      background: linear-gradient(145deg, #1d2a45, #17233b);
+      padding: 24px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.05);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
 
-#projects ol {
-  padding-left: 20px;
-}
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+      border-color: rgba(158,203,255,0.22);
+    }
 
-#projects li {
-  margin-bottom: 12px;
-  line-height: 1.6;
-}
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(158,203,255,0.12), transparent 40%);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      pointer-events: none;
+    }
 
-.profile {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
+    .card:hover::before {
+      opacity: 1;
+    }
 
-.profile img {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #9ecbff;
-}
+    .profile {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+    }
 
-.profile-info {
-  flex: 1;
-}
+    .profile img {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(158,203,255,0.55);
+      flex-shrink: 0;
+    }
 
-.profile-info a {
-  color: #9ecbff;
-  text-decoration: none;
-}
+    .profile-info {
+      flex: 1;
+    }
 
-.profile-info a:hover {
-  color: white;
-}
+    .profile-info h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
+      line-height: 1.3;
+    }
 
+    .profile-info h3 a {
+      color: #9ecbff;
+      text-decoration: none;
+    }
 
-</style>
+    .profile-info h3 a:hover {
+      color: white;
+    }
+
+    .profile-info p {
+      margin: 8px 0;
+      line-height: 1.6;
+      color: #e8edf8;
+      font-size: 15px;
+    }
+
+    .icons {
+      margin-top: 10px;
+    }
+
+    .icons a {
+      color: #9ecbff;
+      margin-right: 12px;
+      font-size: 16px;
+      text-decoration: none;
+      transition: transform 0.2s ease, color 0.2s ease;
+      display: inline-block;
+    }
+
+    .icons a:hover {
+      color: white;
+      transform: translateY(-1px);
+    }
+
+    #projects-content .card h3,
+    #equipment-content .card h3,
+    #teaching-content .card h3 {
+      color: #9ecbff;
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    #projects-content .card p,
+    #equipment-content .card p,
+    #teaching-content .card p {
+      line-height: 1.7;
+      color: #e8edf8;
+      margin: 0;
+    }
+
+    #publications-content h3 {
+      margin: 36px 0 16px;
+      font-size: 22px;
+      color: white;
+    }
+
+    #publications-content ol {
+      padding-left: 22px;
+      margin: 0;
+    }
+
+    #publications-content li {
+      margin-bottom: 14px;
+      line-height: 1.75;
+      color: #edf2ff;
+    }
+
+    #publications-content a {
+      color: #9ecbff;
+      text-decoration: none;
+    }
+
+    #publications-content a:hover {
+      color: white;
+      text-decoration: underline;
+    }
+
+    .join-box {
+      background: linear-gradient(145deg, #1d2a45, #17233b);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 20px;
+      padding: 28px;
+      line-height: 1.8;
+      color: #edf2ff;
+    }
+
+    footer {
+      padding: 28px 40px;
+      text-align: center;
+      color: #b8c4d8;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      background: #07122b;
+    }
+
+    @media (max-width: 900px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+      }
+
+      nav {
+        gap: 14px 18px;
+      }
+
+      .hero h2 {
+        font-size: 36px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .section,
+      .video-section {
+        padding: 72px 22px;
+      }
+
+      .hero-content {
+        padding: 28px 24px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        min-height: 62vh;
+      }
+
+      .hero h2 {
+        font-size: 30px;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+
+      .profile {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .profile img {
+        width: 84px;
+        height: 84px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<header>
-  <h1>DaRC-ARMS Lab</h1>
-  <nav>
-    <a href="#focus">People</a>
-    <a href="#projects">Projects</a>
-    <a href="#publications">Publications</a>
-    <a href="#projects">Teaching</a>
-    <a href="#focus">Equipment</a>
-    <a href="#join">Join</a>
-  </nav>
-</header>
+  <header>
+    <h1>DaRC-ARMS Lab</h1>
+    <nav>
+      <a href="#people">People</a>
+      <a href="#projects">Projects</a>
+      <a href="#publications">Publications</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#equipment">Equipment</a>
+      <a href="#join">Join</a>
+    </nav>
+  </header>
 
-<section class="hero">
-  <div class="hero-content">
-    <h2>Welcome to DaRC-ARMS Research Lab</h2>
-    <p>
-      Dayton Robotics and Controls -- Autonomy Robotics and Multiagent Systems Lab
-    </p>
-    <p>
-      Jointly led by Dr. Krishna B Kidambi and Dr. Nicholas Stiffler at the University of Dayton.
-    </p>
-  </div>
-</section>
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Welcome to DaRC-ARMS Research Lab</h2>
+      <p>Dayton Robotics and Controls -- Autonomy Robotics and Multiagent Systems</p>
+      <p>Jointly led by Dr. Krishna B Kidambi and Dr. Nicholas Stiffler at the University of Dayton.</p>
+    </div>
+  </section>
 
-<section class="video-section">
-  <div class="video-container">
-    <h2>Lab in Action</h2>
-    <p>
-      Research at DaRC-ARMS spans autonomous vehicles, sensing, tracking, and multi-agent systems.
-      This featured video highlights our lab environment, experiments, and project ecosystem.
-    </p>
-
-    <div class="video-wrapper">
-      <!-- <video autoplay muted loop playsinline controls> -->
+  <section class="video-section">
+    <div class="video-container">
+      <h2>Lab in Action</h2>
+      <p>
+        Research at DaRC-ARMS spans autonomous vehicles, sensing, tracking, control,
+        and multi-agent systems. This featured video can highlight experiments,
+        demonstrations, competition footage, or lab activities.
+      </p>
+      <div class="video-wrapper">
         <video autoplay muted loop playsinline>
-        <source src="videos/lab-demo.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+          <source src="videos/lab-demo.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
+  <section id="people" class="section">
+    <h2 class="section-title">People</h2>
+    <div id="people-content"></div>
+  </section>
 
-<section id="focus" class="section">
-  <h2>People</h2>
+  <section id="projects" class="section">
+    <h2 class="section-title">Projects</h2>
+    <div id="projects-content"></div>
+  </section>
 
-  <h3>Directors</h3>
-  <div class="cards">
+  <section id="publications" class="section">
+    <h2 class="section-title">Publications</h2>
+    <div id="publications-content"></div>
+  </section>
 
-    <div class="card">
-      <h3>Krishna B Kidambi
-      <span class = "icons">
-         <a href="https://scholar.google.com/citations?user=2oKj1vsAAAAJ&hl=en&oi=ao" target="_blank">
-          <i class="fa-solid fa-graduation-cap"></i>
-        </a>
-
-        <a href="mailto:kkidambi1@udayton.edu">
-          <i class="fa-solid fa-envelope"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/krishna-b-kidambi-b2ba6656/" target="_blank">
-          <i class="fa-brands fa-linkedin"></i>
-        </a>
-      </span> </h3>
-      <p> Assistant Professor, Mechanical and Aerospace</p>
-      <p>Dayton Robotics and Controls Lab</p>
+  <section id="teaching" class="section">
+    <h2 class="section-title">Teaching</h2>
+    <div id="teaching-content">
+      <div class="cards">
+        <div class="card">
+          <h3>Courses and Mentorship</h3>
+          <p>
+            Add teaching activities, student mentoring, special topics, course projects,
+            or outreach efforts here.
+          </p>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="card">
-      <h3>Nicholas M Stiffler
-       <span class = "icons">
-         <a href="https://scholar.google.com/citations?user=dNiDfoYAAAAJ&hl=en&oi=ao" target="_blank">
-          <i class="fa-solid fa-graduation-cap"></i>
-        </a>
-        <a href="mailto:nstiffler1@udayton.edu">
-          <i class="fa-solid fa-envelope"></i>
-        </a>
-         <a href="https://www.linkedin.com/in/nicholas-stiffler-b3581a143/" target="_blank">
-          <i class="fa-brands fa-linkedin"></i>
-        </a>
-      </h3>
-      <p> Assistant Professor, Computer Science</p>
-      <p>Autonomy Robotics and Multiagent Systems</p>
+  <section id="equipment" class="section">
+    <h2 class="section-title">Equipment</h2>
+    <div id="equipment-content">
+      <div class="cards">
+        <div class="card">
+          <h3>Lab Resources</h3>
+          <p>
+            Add racecars, drones, sensing platforms, embedded systems, motion tracking
+            tools, and experimental hardware here.
+          </p>
+        </div>
+      </div>
     </div>
-  </div>
-     
-  <h3>Graduate Students</h3>
-  <div class="cards">
-    <div class="card">
-      <h3>Musabbir A. Arrafi</h3>
-      <p>Masters - Mechanical</p>
-      <p>PINNs, Robotics, Autonomy</p>
+  </section>
+
+  <section id="join" class="section">
+    <h2 class="section-title">Join Us</h2>
+    <div class="join-box">
+      We are looking for students interested in robotics, control, sensing, machine
+      learning, and autonomous systems. Add application details, faculty contacts,
+      and open positions here.
     </div>
+  </section>
 
-    <div class="card">
-      <h3>Malik Ali</h3>
-      <p>Masters - Electrical & Computer</p>
-      <p>Autonomous Overtaking, Robotics</p>
-    </div>
+  <footer>
+    © 2026 DaRC-ARMS Research Lab • University of Dayton
+  </footer>
 
-    <div class="card">
-      <h3>Kevin Johnston</h3>
-      <p>Masters - Mechanical</p>
-      <p>Energy aware Control, UAV</p>
-    </div>
-  </div>
-
-  <h3>Undergraduate Students</h3>
-  <div class="cards">
-    <div class="card"><h3>Student 1</h3></div>
-    <div class="card"><h3>Student 2</h3></div>
-    <div class="card"><h3>Student 3</h3></div>
-    <div class="card"><h3>Student 4</h3></div>
-    <div class="card"><h3>Student 5</h3></div>
-  </div>
-
-</section>
-  
-<section id="projects" class="section">
-  <h2>Projects</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Learning Dynamics with PINNs</h3>
-      <p> A hybrid model that integrates physics priors with learned components</p>
-    </div>
-    <div class="card">
-      <h3>Control Evaluation with Learned Models</h3>
-      <p> Control Algorithm Performance Evaluation via Open-Loop Learned
-Dynamic Models</p>
-    </div>
-    <div class="card">
-      <h3>Energy Aware Control</h3>
-      <p>Predictive path planning for Quadrotors UAVs.</p>
-    </div>
-    <div class="card">
-      <h3>Search & Target Tracking</h3>
-      <p>Tracking, pursuit, and intelligent autonomy in dynamic environments.</p>
-    </div>
-    <div class="card">
-      <h3>Smart Sensing Networks</h3>
-      <p>Sensor fusion and distributed perception systems.</p>
-    </div>
-    <div class="card">
-      <h3>Remote Dynamic Sensing</h3>
-      <p>Aerial sensing and environmental mapping.</p>
-    </div>
-  </div>
-</section>
-
-<section id="publications" class="section">
-  <h2>Papers</h2>
-  <h3>Manuscripts under Review</h3>
-  <ol>
-    <li>
-      Arrafi, M.A., Ali.M., Stiffler, N., Kidambi, K.B., 
-      "LE-PAVD:Learning Enhanced Physics-Aware Vehicle Dynamics for High-Speed Autonomous Navigation", 
-      Revision under review, <i>IEEE Robotics & Automation Letters</i>, February, 2026.
-    </li>
-    <li>
-      Ali.M., Arrafi, M.A., Stiffler, N., Kidambi, K.B., 
-      "CAPE: Control Algorithm Performance Evaluation via Open-Loop Learned Dynamic Models", 
-      under review, <i>IEEE Control System Letters</i>, March, 2026.
-    </li>
-  </ol> 
-  <h3>Journals</h3>
-  <ol>
-    <li>
-      Johnston, K., Arrafi, M., <b>Kidambi, K. B.</b>, Tiwari, M.,
-      <a href="https://ieeexplore.ieee.org/abstract/document/11173614" target="_blank">
-        "Adaptive Modified RISE Control for Quadrotors: Enhancing Trajectory Tracking Through Uncertainty Compensation",
-      </a>
-      <i>IEEE Access</i>, Volume 13, pp. 169166-169177, 2025.
-    </li>
-     <li>
-      Zuehlke, D., Tiwari, M., Jebari, K., Kidambi, K.B.,
-      <a href="https://www.mdpi.com/2226-4310/10/8/674" target="_blank">
-        "Rendezvous and Proximity Operations in Cislunar Space Using Linearized Dynamics for Estimation",
-      </a>
-      <i>Aerospace</i>, vol. 10, no. 8, 2023.
-    </li>
-      <li>
-    <b>Kidambi, K.B</b>., Fermüller, C., Aloimonos, Y., Xu, H.,
-    <a href="https://ieeexplore.ieee.org/abstract/document/9295321" target="_blank">
-    "Robust Nonlinear Control-based Trajectory Tracking for Quadrotors under Uncertainty",
-    </a>
-    <i>IEEE Control Systems Letters</i>, Vol. 5, no. 6, pp. 2042-2047, 2021.
-  </li>
-
-  <li>
-    <b>Kidambi, K. B</b>., MacKunis, W., Drakunov, S. V., Golubev, V.,
-    <a href="https://doi.org/10.1080/00207179.2020.1713403" target="_blank">
-    "A Sliding Mode Estimation Method for Fluid Flow Fields Using a Differential Inclusions-based Analysis",
-    </a>
-    <i>International Journal of Control</i>, vol. 94, no. 9, pp. 2531-2540, 2021.
-  </li>
-
-  <li>
-    Kossery Jayaprakash, A., <b>Kidambi, K.B</b>., MacKunis, W., Drakunov, S. V., Reyhanoglu, M.,
-    <a href="https://doi.org/10.3390/robotics9040087" target="_blank">
-    "Finite-time State Estimation for an Inverted Pendulum Under Input-multiplicative Uncertainty",
-    </a>
-    <i>Robotics</i>, 2020; 9(4):87.
-  </li>
-
-  <li>
-    <b>Kidambi, K. B</b>., MacKunis, W., Drakunov, S. V., Golubev, V.,
-    <a href="https://doi.org/10.1002/rnc.5129" target="_blank">
-    "Sliding Mode Estimation and Closed-loop Active Flow Control Under Actuator Uncertainty",
-    </a>
-    <i>International Journal of Robust Nonlinear Control</i>, vol. 30, no. 16, pp. 6645-6660, 2020.
-  </li>
-
-  <li>
-    <b>Kidambi, K. B</b>., Ramos-Pedroza, N., MacKunis, W., Drakunov, S. V.,
-    <a href="https://doi.org/10.1002/rnc.4070" target="_blank">
-    "A Closed-loop Nonlinear Control and Sliding Mode Estimation Strategy for Fluid Flow Regulation",
-    </a>
-    <i>International Journal of Robust Nonlinear Control</i>, vol. 29, no. 3, pp. 779-792, 2019.
-  </li>
-    <li>
-    Shuai D. Han, Nicholas M. Stiffler, Athanasios Krontiris, Kostas E. Bekris, and Jingjin Yu.
-    <a href="https://journals.sagepub.com/doi/full/10.1177/0278364918780999?casa_token=PPRsHxsgJSEAAAAA%3AcFJtEpOlC97FKM4c5Lktqz6KKZbEEeJlxuaNBnLj6NC2OV7JqetL14suVxbwj3yIzzHhx8UmaTlEL_k" target="_blank">
-      "Complexity Results and Fast Methods for Optimal Tabletop Rearrangement with Overhand Grasps",
-    </a>
-    <i>International Journal of Robotics Research</i>, Vol. 37, no.13-14, pp. 1775-1795 July 2018.
-  </li>
-
-  <li>
-    Shuai D. Han, Nicholas M. Stiffler, Kostas E. Bekris, and Jingjin Yu.
-    <a href="https://ieeexplore.ieee.org/abstract/document/8276280" target="_blank">
-      "Efficient, High-Quality Stack Rearrangement",
-    </a>
-    <i>IEEE Robotics and Automation Letters</i>, Vol. 3, no.3, pp. 1608-1615, 2018.
-     
-  </li>
-
-  <li>
-    Nicholas M. Stiffler, Jason M. O’Kane.
-    <a href="https://journals.sagepub.com/doi/full/10.1177/0278364917711535" target="_blank">
-      "Complete and Optimal Visibility-Based Pursuit-Evasion",
-    </a>
-    <i>International Journal of Robotics Research</i>, Vol. 36, pp.923–946, July 2017.
-  </li>
-  </ol>  
-  <h3>Conferences</h3>
-</section>
-
-<section id="join" class="section">
-  <h2>Join Us</h2>
-  <p>
-    We are looking for students interested in robotics, control, sensing, and autonomous systems.
-  </p>
-</section>
-
+  <script src="js/people.js"></script>
+  <script src="js/projects.js"></script>
+  <script src="js/publications.js"></script>
+  <script src="js/render.js"></script>
 </body>
 </html>
