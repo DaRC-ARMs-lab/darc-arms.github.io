@@ -1,27 +1,56 @@
-function createPersonCard(person, showIcons = false) {
+function createIconLinks(person) {
+  const icons = [
+    person.scholar
+      ? `<a href="${person.scholar}" target="_blank" aria-label="Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a>`
+      : "",
+    person.email
+      ? `<a href="${person.email}" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>`
+      : "",
+    person.linkedin
+      ? `<a href="${person.linkedin}" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>`
+      : "",
+    person.github
+      ? `<a href="${person.github}" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>`
+      : "",
+    person.orcid
+      ? `<a href="${person.orcid}" target="_blank" aria-label="ORCID"><i class="fa-brands fa-orcid"></i></a>`
+      : ""
+  ].filter(Boolean);
+
+  if (icons.length === 0) return "";
+  return `<div class="icons">${icons.join("")}</div>`;
+}
+
+function createPersonCard(person) {
+  const nameHtml = person.website && person.website !== "#"
+    ? `<a href="${person.website}" target="_blank">${person.name}</a>`
+    : person.name;
+
+  const subtitle = person.lab || person.interests || "";
+  const image = person.image || "images/default.jpg";
+
   return `
     <div class="card">
       <div class="profile">
-        <img src="${person.image}" alt="${person.name}">
+        <img src="${image}" alt="${person.name}">
         <div class="profile-info">
-          <h3>
-            <a href="${person.website || '#'}" target="_blank">${person.name}</a>
-          </h3>
-          <p>${person.role || ""}</p>
-          <p>${person.lab || person.interests || ""}</p>
-          ${
-            showIcons
-              ? `
-              <div class="icons">
-                ${person.scholar ? `<a href="${person.scholar}" target="_blank"><i class="fa-solid fa-graduation-cap"></i></a>` : ""}
-                ${person.email ? `<a href="${person.email}"><i class="fa-solid fa-envelope"></i></a>` : ""}
-                ${person.linkedin ? `<a href="${person.linkedin}" target="_blank"><i class="fa-brands fa-linkedin"></i></a>` : ""}
-              </div>
-            `
-              : ""
-          }
+          <h3>${nameHtml}</h3>
+          ${person.role ? `<p>${person.role}</p>` : ""}
+          ${subtitle ? `<p>${subtitle}</p>` : ""}
+          ${createIconLinks(person)}
         </div>
       </div>
+    </div>
+  `;
+}
+
+function createPeopleGroup(title, peopleArray) {
+  if (!peopleArray || peopleArray.length === 0) return "";
+
+  return `
+    <h3 class="group-title">${title}</h3>
+    <div class="cards">
+      ${peopleArray.map(person => createPersonCard(person)).join("")}
     </div>
   `;
 }
@@ -29,20 +58,9 @@ function createPersonCard(person, showIcons = false) {
 function renderPeople() {
   const container = document.getElementById("people-content");
   container.innerHTML = `
-    <h3>Directors</h3>
-    <div class="cards">
-      ${peopleData.directors.map(person => createPersonCard(person, true)).join("")}
-    </div>
-
-    <h3>Graduate Students</h3>
-    <div class="cards">
-      ${peopleData.graduateStudents.map(person => createPersonCard(person)).join("")}
-    </div>
-
-    <h3>Undergraduate Students</h3>
-    <div class="cards">
-      ${peopleData.undergraduateStudents.map(person => createPersonCard(person)).join("")}
-    </div>
+    ${createPeopleGroup("Directors", peopleData.directors)}
+    ${createPeopleGroup("Graduate Students", peopleData.graduateStudents)}
+    ${createPeopleGroup("Undergraduate Students", peopleData.undergraduateStudents)}
   `;
 }
 
@@ -60,22 +78,27 @@ function renderProjects() {
   `;
 }
 
-function renderPublications() {
-  const container = document.getElementById("publications-content");
-  container.innerHTML = `
-    <h3>Manuscripts under Review</h3>
-    <ol>
-      ${publicationsData.underReview.map(pub => `<li>${pub.text}</li>`).join("")}
-    </ol>
+function renderPublicationList(title, items) {
+  if (!items || items.length === 0) return "";
 
-    <h3>Journals</h3>
+  return `
+    <h3>${title}</h3>
     <ol>
-      ${publicationsData.journals.map(pub => `
+      ${items.map(pub => `
         <li>
           ${pub.link ? `<a href="${pub.link}" target="_blank">${pub.text}</a>` : pub.text}
         </li>
       `).join("")}
     </ol>
+  `;
+}
+
+function renderPublications() {
+  const container = document.getElementById("publications-content");
+  container.innerHTML = `
+    ${renderPublicationList("Manuscripts under Review", publicationsData.underReview)}
+    ${renderPublicationList("Journals", publicationsData.journals)}
+    ${renderPublicationList("Conferences", publicationsData.conferences)}
   `;
 }
 
