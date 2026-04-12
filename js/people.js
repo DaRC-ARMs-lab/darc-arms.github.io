@@ -4,7 +4,7 @@ const peopleData = {
       name: "Krishna B. Kidambi",
       role: "Assistant Professor, Mechanical and Aerospace",
       lab: "Dayton Robotics and Controls Lab",
-      image: "images/kidambi.jpg",
+      image: "images/Kidambi_Profile.png",
       website: "https://udayton.edu/directory/engineering/mechanical-and-aerospace/kidambi-krishna.php",
       scholar: "https://scholar.google.com/citations?user=2oKj1vsAAAAJ&hl=en&oi=ao",
       email: "mailto:kkidambi1@udayton.edu",
